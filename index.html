@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎰 FORTUNA ARGENTINA — Tu Bono del 25% Te Espera</title>
+    <meta name="description"
+        content="El casino más confiable de Argentina. Recibí un 25% de bonificación en tu primera carga. Desde $2.000, acreditación en 2 minutos por WhatsApp.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bebas+Neue&family=Russo+One&family=Nunito:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --gold: #FFD700;
+            --gold2: #FFA500;
+            --neon-green: #25D366;
+            --neon-pink: #FF006E;
+            --neon-cyan: #00F5FF;
+            --neon-purple: #BF00FF;
+            --dark: #050510;
+            --dark2: #0a0a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--dark);
+            font-family: 'Nunito', sans-serif;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* ── CURSOR ─────────────────────────────────────────── */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s, background 0.1s;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--neon-green);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+        }
+
+        /* ── FONDO ESTRELLAS ────────────────────────────────── */
+        .bg-stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle linear infinite;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* ── NAVBAR ─────────────────────────────────────────── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(5, 5, 16, 0.95) 0%, transparent 100%);
+            backdrop-filter: blur(5px);
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--gold), var(--gold2), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 3px;
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
+            animation: logoGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes logoGlow {
+            from {
+                filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.4));
+            }
+
+            to {
+                filter: drop-shadow(0 0 30px rgba(255, 165, 0, 0.8));
+            }
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--neon-green), #1aaa50);
+            color: #fff;
+            font-family: 'Russo One', sans-serif;
+            font-size: 0.82rem;
+            padding: 10px 22px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
+            animation: pulse-green 1.5s ease-in-out infinite;
+            transition: transform 0.2s;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-cta:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes pulse-green {
+
+            0%,
+            100% {
+                box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 0 35px rgba(37, 211, 102, 0.9), 0 0 60px rgba(37, 211, 102, 0.3);
+            }
+        }
+
+        /* ── HERO ────────────────────────────────────────────── */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 110px 20px 70px;
+            z-index: 1;
+            overflow: hidden;
+            background: url('Explosive_and_immersive_highstakes_casino_composit_delpmaspu.png') center center / cover no-repeat;
+        }
+
+        /* Dark overlay for readability */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg,
+                    rgba(5, 5, 16, 0.80) 0%,
+                    rgba(5, 5, 16, 0.65) 40%,
+                    rgba(5, 5, 16, 0.75) 70%,
+                    rgba(5, 5, 16, 0.95) 100%);
+            z-index: 0;
+        }
+
+        /* Color accents on top of overlay */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(191, 0, 255, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 50%, rgba(0, 245, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 20%, rgba(255, 0, 110, 0.08) 0%, transparent 50%);
+            animation: bgPulse 6s ease-in-out infinite alternate;
+            z-index: 0;
+        }
+
+        /* Ensure all hero children sit above overlays */
+        .hero>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes bgPulse {
+            0% {
+                transform: rotate(0deg) scale(1);
+            }
+
+            100% {
+                transform: rotate(5deg) scale(1.1);
+            }
+        }
+
+        /* emojis flotantes */
+        .floating-emojis {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .emoji-float {
+            position: absolute;
+            animation: floatUp linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.7;
+            }
+
+            90% {
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--neon-green), #128C7E);
+            color: white;
+            font-family: 'Russo One', sans-serif;
+            font-size: 0.72rem;
+            padding: 6px 20px;
+            border-radius: 50px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            animation: badgePop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
+        }
+
+        @keyframes badgePop {
+            from {
+                transform: scale(0) rotate(-10deg);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        .hero-title {
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: clamp(3rem, 11vw, 8.5rem);
+            line-height: 1.05;
+            margin-bottom: 12px;
+            padding-top: 0.08em;
+            animation: titleSlide 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+        }
+
+        @keyframes titleSlide {
+            from {
+                transform: translateY(60px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .title-line1 {
+            display: block;
+            background: linear-gradient(135deg, var(--gold), var(--gold2), #FF6B00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.6));
+        }
+
+        .title-line2 {
+            display: block;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 30px rgba(0, 245, 255, 0.5));
+        }
+
+        .hero-sub {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: rgba(255, 255, 255, 0.82);
+            max-width: 580px;
+            margin: 20px auto 38px;
+            line-height: 1.65;
+            font-weight: 700;
+            animation: fadeIn 0.8s ease 0.5s both;
+        }
+
+        .hero-sub span {
+            color: var(--gold);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ── SLOTS DISPLAY ───────────────────────────────────── */
+        .slots-display {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 30px 0;
+            animation: fadeIn 1s ease 0.9s both;
+        }
+
+        .slot-reel {
+            width: 68px;
+            height: 88px;
+            background: linear-gradient(180deg, #1a1a2e, #0d0d1a);
+            border: 2px solid var(--gold);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3), inset 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .slot-reel::before,
+        .slot-reel::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 28px;
+            z-index: 2;
+        }
+
+        .slot-reel::before {
+            top: 0;
+            background: linear-gradient(180deg, rgba(26, 26, 46, 0.9), transparent);
+        }
+
+        .slot-reel::after {
+            bottom: 0;
+            background: linear-gradient(0deg, rgba(26, 26, 46, 0.9), transparent);
+        }
+
+        .reel-inner {
+            animation: spinReel 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate;
+        }
+
+        @keyframes spinReel {
+            from {
+                transform: translateY(-5px);
+            }
+
+            to {
+                transform: translateY(5px);
+            }
+        }
+
+        /* ── MAIN CTA BUTTON ─────────────────────────────────── */
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 13px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            font-family: 'Russo One', sans-serif;
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            padding: 20px 44px;
+            border-radius: 100px;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.5), 0 0 60px rgba(37, 211, 102, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            animation: ctaBounce 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.7s both,
+                ctaPulse 2s ease-in-out 1.5s infinite;
+            transition: transform 0.2s, box-shadow 0.2s;
+            letter-spacing: 1px;
+        }
+
+        .btn-whatsapp::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 40%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.15);
+            transform: skewX(-20deg);
+            animation: shine 3s ease-in-out infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                left: -60%;
+            }
+
+            100% {
+                left: 150%;
+            }
+        }
+
+        @keyframes ctaBounce {
+            from {
+                transform: scale(0) rotate(-5deg);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes ctaPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 30px rgba(37, 211, 102, 0.5), 0 0 60px rgba(37, 211, 102, 0.2);
+            }
+
+            50% {
+                box-shadow: 0 0 50px rgba(37, 211, 102, 0.8), 0 0 100px rgba(37, 211, 102, 0.4);
+                transform: scale(1.03);
+            }
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.06) translateY(-3px) !important;
+            box-shadow: 0 0 60px rgba(37, 211, 102, 0.9), 0 10px 40px rgba(37, 211, 102, 0.4) !important;
+        }
+
+        .wa-icon {
+            width: 30px;
+            height: 30px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .wa-icon svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ── SOCIAL PROOF ────────────────────────────────────── */
+        .social-proof {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 36px;
+            animation: fadeIn 1s ease 1s both;
+        }
+
+        .proof-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+
+        .proof-item .num {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.5rem;
+            color: var(--gold);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        /* ── JACKPOT BANNER ──────────────────────────────────── */
+        .jackpot-banner {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(255, 165, 0, 0.05));
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            margin: 40px 0;
+            overflow: hidden;
+        }
+
+        .jackpot-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(45deg, transparent, transparent 10px,
+                    rgba(255, 215, 0, 0.02) 10px, rgba(255, 215, 0, 0.02) 20px);
+        }
+
+        .jackpot-label {
+            font-family: 'Russo One', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            color: rgba(255, 215, 0, 0.7);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .jackpot-amount {
+            font-family: 'Bebas Neue', cursive;
+            font-size: clamp(3rem, 10vw, 7rem);
+            background: linear-gradient(135deg, var(--gold), var(--gold2), #FF6B00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.5));
+            letter-spacing: 3px;
+        }
+
+        .jackpot-sub {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            margin-top: 5px;
+            font-weight: 700;
+        }
+
+        /* ── SECTION SHARED ──────────────────────────────────── */
+        .section-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: clamp(2.2rem, 6vw, 4.5rem);
+            text-align: center;
+            letter-spacing: 3px;
+            margin-bottom: 55px;
+            background: linear-gradient(135deg, white, rgba(255, 255, 255, 0.6));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-title span {
+            background: linear-gradient(135deg, var(--gold), var(--gold2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ── HOW IT WORKS ────────────────────────────────────── */
+        .steps-section {
+            position: relative;
+            z-index: 1;
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 22px;
+        }
+
+        .step-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .step-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.15);
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .step-num {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 5rem;
+            line-height: 1;
+            background: linear-gradient(135deg, var(--gold), var(--gold2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0.3;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        .step-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+            animation: iconBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes iconBounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .step-card h3 {
+            font-family: 'Russo One', sans-serif;
+            font-size: 1.1rem;
+            color: white;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .step-card p {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ── GAMES MARQUEE ───────────────────────────────────── */
+        .games-section {
+            position: relative;
+            z-index: 1;
+            padding: 80px 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .games-marquee-wrapper {
+            overflow: hidden;
+            mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+            margin: 40px 0;
+        }
+
+        .games-marquee {
+            display: flex;
+            gap: 20px;
+            animation: marquee 22s linear infinite;
+            width: max-content;
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .game-chip {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 14px 24px;
+            white-space: nowrap;
+            color: white;
+            font-family: 'Russo One', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+        }
+
+        .game-chip:hover {
+            border-color: var(--gold);
+        }
+
+        .game-chip .game-emoji {
+            font-size: 1.4rem;
+        }
+
+        /* ── GAME CARDS GRID ─────────────────────────────────── */
+        .game-cards-section {
+            position: relative;
+            z-index: 1;
+            padding: 20px 20px 80px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .game-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 20px;
+        }
+
+        .game-card {
+            border-radius: 18px;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            backdrop-filter: blur(8px);
+        }
+
+        .game-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.2);
+            border-color: var(--gold);
+        }
+
+        .game-card img {
+            width: 100%;
+            aspect-ratio: 16/10;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hot-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: linear-gradient(135deg, #FF006E, #FF6B00);
+            color: white;
+            font-family: 'Russo One', sans-serif;
+            font-size: 0.62rem;
+            letter-spacing: 1px;
+            padding: 3px 10px;
+            border-radius: 50px;
+            box-shadow: 0 0 15px rgba(255, 0, 110, 0.5);
+        }
+
+        .game-card-body {
+            padding: 14px 14px 16px;
+        }
+
+        .game-card-body h3 {
+            font-family: 'Russo One', sans-serif;
+            font-size: 0.85rem;
+            color: white;
+            margin-bottom: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .btn-play {
+            display: block;
+            text-align: center;
+            background: linear-gradient(135deg, var(--gold), var(--gold2));
+            color: #000;
+            font-family: 'Russo One', sans-serif;
+            font-size: 0.78rem;
+            letter-spacing: 1px;
+            padding: 9px 14px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+        .btn-play:hover {
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+            transform: scale(1.04);
+        }
+
+        /* ── BENEFITS ────────────────────────────────────────── */
+        .benefits-section {
+            position: relative;
+            z-index: 1;
+            padding: 40px 20px 80px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border-left: 3px solid var(--neon-green);
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .benefit-item:hover {
+            background: rgba(37, 211, 102, 0.05);
+            transform: translateX(5px);
+        }
+
+        .benefit-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-item h4 {
+            color: white;
+            font-family: 'Russo One', sans-serif;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .benefit-item p {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 0.83rem;
+            line-height: 1.5;
+        }
+
+        /* ── FINAL CTA ───────────────────────────────────────── */
+        .final-cta {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 100px 20px;
+            background: radial-gradient(ellipse at center, rgba(37, 211, 102, 0.08) 0%, transparent 70%);
+        }
+
+        .final-cta h2 {
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
+            color: white;
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+
+        .final-cta h2 span {
+            background: linear-gradient(135deg, var(--neon-green), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .final-cta p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.05rem;
+            max-width: 480px;
+            margin: 0 auto 40px;
+            line-height: 1.65;
+        }
+
+        /* ── FLOATING WA ─────────────────────────────────────── */
+        .floating-wa {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 200;
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.6), 0 5px 20px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            animation: floatWa 2s ease-in-out infinite;
+            transition: transform 0.2s;
+        }
+
+        .floating-wa:hover {
+            transform: scale(1.12);
+        }
+
+        .floating-wa svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        @keyframes floatWa {
+
+            0%,
+            100% {
+                transform: translateY(0);
+                box-shadow: 0 0 30px rgba(37, 211, 102, 0.6);
+            }
+
+            50% {
+                transform: translateY(-8px);
+                box-shadow: 0 0 50px rgba(37, 211, 102, 0.9);
+            }
+        }
+
+        .wa-ping {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 18px;
+            height: 18px;
+            background: #FF006E;
+            border-radius: 50%;
+            animation: ping 1.5s ease-in-out infinite;
+        }
+
+        @keyframes ping {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            70%,
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        /* ── FOOTER ──────────────────────────────────────────── */
+        footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.78rem;
+        }
+
+        /* ── COIN BURST ──────────────────────────────────────── */
+        .coin-burst {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9990;
+            font-size: 1.5rem;
+            animation: coinFall 1s ease forwards;
+        }
+
+        @keyframes coinFall {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100px) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* ── SCROLL REVEAL ───────────────────────────────────── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── RESPONSIVE ──────────────────────────────────────── */
+        @media (max-width: 600px) {
+            nav {
+                padding: 12px 18px;
+            }
+
+            .logo {
+                font-size: 1.6rem;
+            }
+
+            .slot-reel {
+                width: 52px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+
+            .floating-wa {
+                bottom: 18px;
+                right: 18px;
+                width: 56px;
+                height: 56px;
+            }
+
+            .social-proof {
+                gap: 18px;
+            }
+
+            .btn-whatsapp {
+                padding: 16px 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CURSOR -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+
+    <!-- FONDO ESTRELLAS -->
+    <div class="bg-stars" id="bgStars"></div>
+
+    <!-- FLOATING WA BUTTON -->
+    <a href="https://walink.co/660a24" target="_blank" rel="noopener" class="floating-wa" aria-label="WhatsApp">
+        <div class="wa-ping"></div>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">🎰 FORTUNA ARG</div>
+        <a href="https://walink.co/660a24" target="_blank" rel="noopener" class="nav-cta">¡QUIERO MI BONO!</a>
+    </nav>
+
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <section class="hero">
+        <div class="floating-emojis" id="floatingEmojis"></div>
+
+        <div class="badge">🟢 <span id="liveCount">5.541</span> JUGADORES ACTIVOS AHORA MISMO</div>
+
+        <h1 class="hero-title">
+            <span class="title-line1">BONO 25%</span>
+            <span class="title-line2">PRIMERA CARGA</span>
+        </h1>
+
+        <p class="hero-sub">
+            El casino más confiable de Argentina.<br>
+            Cargá desde <span>$2.000</span> y recibí tus fichas en <span>solo 2 MINUTOS</span>.
+        </p>
+
+        <!-- SLOT REELS -->
+        <div class="slots-display">
+            <div class="slot-reel">
+                <div class="reel-inner" id="reel1">🍒</div>
+            </div>
+            <div class="slot-reel">
+                <div class="reel-inner" id="reel2" style="animation-delay:.2s">💎</div>
+            </div>
+            <div class="slot-reel">
+                <div class="reel-inner" id="reel3" style="animation-delay:.4s">🍋</div>
+            </div>
+            <div class="slot-reel">
+                <div class="reel-inner" id="reel4" style="animation-delay:.1s">7️⃣</div>
+            </div>
+            <div class="slot-reel">
+                <div class="reel-inner" id="reel5" style="animation-delay:.3s">🔔</div>
+            </div>
+        </div>
+
+        <a href="https://walink.co/660a24" target="_blank" rel="noopener" class="btn-whatsapp" id="heroCta">
+            <div class="wa-icon">
+                <svg viewBox="0 0 24 24" fill="#25D366">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+            </div>
+            QUIERO MI BONO POR WHATSAPP
+        </a>
+
+        <div class="social-proof">
+            <div class="proof-item">
+                <span class="num" id="counter1">0</span>
+                <span>jugadores activos</span>
+            </div>
+            <div class="proof-item">
+                <span class="num" id="counter2">0</span>
+                <span>ganadores hoy</span>
+            </div>
+            <div class="proof-item">
+                <span class="num">⚡</span>
+                <span>Acreditación en 2 min</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ JACKPOT BANNER ═══════════════ -->
+    <div class="jackpot-banner reveal">
+        <div class="jackpot-label">💰 PREMIOS PAGADOS HOY</div>
+        <div class="jackpot-amount" id="jackpotAmt">$0</div>
+        <div class="jackpot-sub">¡Tu próximo retiro podría ser ahora mismo!</div>
+    </div>
+
+    <!-- ═══════════════ CÓMO EMPEZAR ═══════════════ -->
+    <section class="steps-section reveal">
+        <h2 class="section-title">¿CÓMO <span>EMPEZAR?</span></h2>
+        <div class="steps-grid">
+            <div class="step-card">
+                <span class="step-num">01</span>
+                <span class="step-icon">💬</span>
+                <h3>ESCRIBINOS POR WHATSAPP</h3>
+                <p>Tocá el botón verde, mandanos un mensaje y te atendemos al instante. Sin formularios, sin esperas.
+                </p>
+            </div>
+            <div class="step-card">
+                <span class="step-num">02</span>
+                <span class="step-icon">🎟️</span>
+                <h3>PEDÍ TU USUARIO</h3>
+                <p>En minutos tenés tu cuenta lista. Solo nos decís tu nombre y ya estás adentro.</p>
+            </div>
+            <div class="step-card">
+                <span class="step-num">03</span>
+                <span class="step-icon">💰</span>
+                <h3>CARGÁ DESDE $2.000</h3>
+                <p>Transferencia bancaria o billetera virtual. Rápido, seguro y sin comisiones ocultas.</p>
+            </div>
+            <div class="step-card">
+                <span class="step-num">04</span>
+                <span class="step-icon">🏆</span>
+                <h3>¡FICHAS EN 2 MINUTOS!</h3>
+                <p>Acreditamos al instante y ya podés jugar con tu bono del 25% activado.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ NUESTROS JUEGOS ═══════════════ -->
+    <section class="games-section reveal">
+        <h2 class="section-title">NUESTROS <span>JUEGOS</span></h2>
+
+        <div class="game-cards-section">
+            <div class="game-cards-grid">
+
+                <div class="game-card">
+                    <img src="gates_of_olympus.png" alt="Gates of Olympus" loading="lazy">
+                    <span class="hot-tag">HOT 🔥</span>
+                    <div class="game-card-body">
+                        <h3>Gates of Olympus</h3>
+                        <a class="btn-play" href="https://walink.co/660a24" target="_blank" rel="noopener">⚡ JUGAR
+                            AHORA</a>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <img src="sweet_bonanza.png" alt="Sweet Bonanza" loading="lazy">
+                    <span class="hot-tag">HOT 🔥</span>
+                    <div class="game-card-body">
+                        <h3>Sweet Bonanza</h3>
+                        <a class="btn-play" href="https://walink.co/660a24" target="_blank" rel="noopener">⚡ JUGAR
+                            AHORA</a>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <img src="joker_jewels.png" alt="Joker Jewels" loading="lazy">
+                    <div class="game-card-body">
+                        <h3>Joker Jewels</h3>
+                        <a class="btn-play" href="https://walink.co/660a24" target="_blank" rel="noopener">⚡ JUGAR
+                            AHORA</a>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <img src="chilli_heat.png" alt="Chilli Heat" loading="lazy">
+                    <div class="game-card-body">
+                        <h3>Chilli Heat</h3>
+                        <a class="btn-play" href="https://walink.co/660a24" target="_blank" rel="noopener">⚡ JUGAR
+                            AHORA</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ BENEFICIOS ═══════════════ -->
+    <section class="benefits-section reveal">
+        <h2 class="section-title">¿POR QUÉ <span>ELEGIRNOS?</span></h2>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <span class="benefit-icon">⚡</span>
+                <div>
+                    <h4>ACREDITACIÓN EN 2 MINUTOS</h4>
+                    <p>Tus fichas llegan antes de que termines de escribirnos. Probado por miles de jugadores.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">🎁</span>
+                <div>
+                    <h4>BONO DEL 25% GARANTIZADO</h4>
+                    <p>Primera carga con bonificación automática. Más fichas, más chances de ganar.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">🔒</span>
+                <div>
+                    <h4>100% SEGURO Y CONFIABLE</h4>
+                    <p>Tu dinero está siempre protegido. Operamos con total transparencia.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">💳</span>
+                <div>
+                    <h4>MERCADO PAGO Y TRANSFERENCIAS</h4>
+                    <p>Los métodos de pago más usados en Argentina, sin comisiones extras.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">📱</span>
+                <div>
+                    <h4>DESDE TU CELULAR</h4>
+                    <p>Jugá en cualquier momento y lugar, todo desde tu teléfono.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">🌟</span>
+                <div>
+                    <h4>SOPORTE 24/7 POR WHATSAPP</h4>
+                    <p>Personas reales atendiendo tus consultas todo el día, todos los días.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ FINAL CTA ═══════════════ -->
+    <section class="final-cta reveal">
+        <h2>¿LISTO PARA<br><span>GANAR?</span></h2>
+        <p>Tu bono del 25% ya está reservado. Escribinos ahora y empezá a jugar en menos de 2 minutos.</p>
+        <a href="https://walink.co/660a24" target="_blank" rel="noopener" class="btn-whatsapp"
+            style="font-size:1.15rem; padding:22px 52px;">
+            <div class="wa-icon">
+                <svg viewBox="0 0 24 24" fill="#25D366">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+            </div>
+            ¡ESCRIBIME POR WHATSAPP!
+        </a>
+    </section>
+
+    <footer>
+        <p>🎰 Fortuna Argentina Casino &nbsp;·&nbsp; Juego Responsable &nbsp;·&nbsp; Solo para +18 años.</p>
+    </footer>
+
+    <!-- ═══════════════ SCRIPTS ═══════════════ -->
+    <script>
+        /* ── CURSOR ──────────────────────────────── */
+        const cursor = document.getElementById('cursor');
+        const cursorDot = document.getElementById('cursorDot');
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+        });
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'translate(-50%,-50%) scale(2)';
+                cursor.style.background = 'rgba(255,215,0,0.2)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'translate(-50%,-50%) scale(1)';
+                cursor.style.background = 'transparent';
+            });
+        });
+        if ('ontouchstart' in window) {
+            cursor.style.display = 'none';
+            cursorDot.style.display = 'none';
+            document.body.style.cursor = 'auto';
+        }
+
+        /* ── ESTRELLAS ───────────────────────────── */
+        const bgStars = document.getElementById('bgStars');
+        for (let i = 0; i < 130; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 2.5 + 0.5;
+            star.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random() * 100}%;
+      top:${Math.random() * 100}%;
+      animation-duration:${Math.random() * 3 + 2}s;
+      animation-delay:${Math.random() * 5}s;
+    `;
+            bgStars.appendChild(star);
+        }
+
+        /* ── EMOJIS FLOTANTES ────────────────────── */
+        const emojiList = ['🎰', '💰', '🃏', '🎲', '💎', '🍀', '⭐', '🏆', '🎊', '💸', '🔥', '✨', '🍒', '🎯'];
+        const fContainer = document.getElementById('floatingEmojis');
+        function createEmoji() {
+            const el = document.createElement('div');
+            el.className = 'emoji-float';
+            el.textContent = emojiList[Math.floor(Math.random() * emojiList.length)];
+            el.style.left = Math.random() * 100 + '%';
+            el.style.animationDuration = (Math.random() * 8 + 6) + 's';
+            el.style.animationDelay = (Math.random() * 2) + 's';
+            el.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+            fContainer.appendChild(el);
+            setTimeout(() => el.remove(), 15000);
+        }
+        for (let i = 0; i < 8; i++) setTimeout(createEmoji, i * 700);
+        setInterval(createEmoji, 1100);
+
+        /* ── SLOT REELS ──────────────────────────── */
+        const reelSymbols = ['🍒', '💎', '🍋', '7️⃣', '🔔', '⭐', '🍇', '🍀', '💰', '🎰', '🌶️', '🐉'];
+        const reels = ['reel1', 'reel2', 'reel3', 'reel4', 'reel5'];
+        function spinReels() {
+            reels.forEach((id, i) => {
+                setTimeout(() => {
+                    document.getElementById(id).textContent =
+                        reelSymbols[Math.floor(Math.random() * reelSymbols.length)];
+                }, i * 150);
+            });
+        }
+        setInterval(spinReels, 2000);
+
+        /* ── LIVE PLAYER COUNTER ─────────────────── */
+        let liveCount = 5541;
+        setInterval(() => {
+            liveCount = Math.max(5510, Math.min(5590, liveCount + (Math.floor(Math.random() * 7) - 3)));
+            document.getElementById('liveCount').textContent = liveCount.toLocaleString('es-AR');
+        }, 4000);
+
+        /* ── ANIMATED COUNTERS ───────────────────── */
+        function animateCounter(el, target) {
+            let cur = 0;
+            const step = target / 60;
+            const timer = setInterval(() => {
+                cur = Math.min(cur + step, target);
+                el.textContent = Math.floor(cur).toLocaleString('es-AR');
+                if (cur >= target) clearInterval(timer);
+            }, 25);
+        }
+        animateCounter(document.getElementById('counter1'), 5541);
+        animateCounter(document.getElementById('counter2'), 347);
+
+        /* ── JACKPOT ─────────────────────────────── */
+        let jackpot = 1248560;
+        const jEl = document.getElementById('jackpotAmt');
+        let jCur = 0;
+        const jTimer = setInterval(() => {
+            jCur = Math.min(jCur + 22000, jackpot);
+            jEl.textContent = '$' + Math.floor(jCur).toLocaleString('es-AR');
+            if (jCur >= jackpot) {
+                clearInterval(jTimer);
+                setInterval(() => {
+                    jackpot += Math.floor(Math.random() * 1500 + 300);
+                    jEl.textContent = '$' + jackpot.toLocaleString('es-AR');
+                }, 1800);
+            }
+        }, 30);
+
+        /* ── SCROLL REVEAL ───────────────────────── */
+        const revealEls = document.querySelectorAll('.reveal');
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        revealEls.forEach(r => obs.observe(r));
+
+        /* ── COIN BURST ON CLICK ─────────────────── */
+        const coins = ['💰', '💸', '🪙', '⭐', '✨', '🎊'];
+        document.querySelectorAll('.btn-whatsapp, .nav-cta, .btn-play').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                for (let i = 0; i < 9; i++) {
+                    const coin = document.createElement('div');
+                    coin.className = 'coin-burst';
+                    coin.textContent = coins[Math.floor(Math.random() * coins.length)];
+                    coin.style.left = (e.clientX + (Math.random() - 0.5) * 90) + 'px';
+                    coin.style.top = e.clientY + 'px';
+                    coin.style.animationDuration = (Math.random() * 0.4 + 0.6) + 's';
+                    document.body.appendChild(coin);
+                    setTimeout(() => coin.remove(), 1200);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
