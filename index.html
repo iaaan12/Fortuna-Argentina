@@ -187,7 +187,7 @@
             padding: 110px 20px 70px;
             z-index: 1;
             overflow: hidden;
-            background: url('Explosive_and_immersive_highstakes_casino_composit_delpmaspu_11zon.jpg') center center / cover no-repeat;
+            background: url('Explosive_and_immersive_highstakes_casino_composit_delpmaspu.png') center center / cover no-repeat;
         }
 
         /* Dark overlay for readability */
@@ -373,8 +373,16 @@
         .hero-video {
             width: 100%;
             max-width: 800px;
-            border-radius: 15px;
             display: block;
+            border-radius: 15px;
+            background: transparent;
+            outline: none;
+            border: none;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+            /* Evita glitch rendering iOS */
+            mix-blend-mode: screen;
+            /* Elimina fondos negros del video fundiéndolo con las capas del hero */
         }
 
         /* ── MAIN CTA BUTTON ─────────────────────────────────── */
