@@ -309,22 +309,19 @@
             }
         }
 
-        .title-line1 {
+        .title-line1,
+        .title-line2 {
             display: block;
-            background: linear-gradient(135deg, var(--gold), var(--gold2), #FF6B00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--gold);
             filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.6));
         }
 
-        .title-line2 {
-            display: block;
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 0 30px rgba(0, 245, 255, 0.5));
+        .highlight-25 {
+            font-size: 1.45em;
+            /* Agranda el tamaño relativo al resto del título */
+            text-shadow: 0 0 45px rgba(255, 215, 0, 0.9);
+            display: inline-block;
+            transform: translateY(-2px);
         }
 
         .hero-sub {
@@ -354,62 +351,19 @@
             }
         }
 
-        /* ── SLOTS DISPLAY ───────────────────────────────────── */
-        .slots-display {
+        /* ── VIDEO DISPLAY ───────────────────────────────────── */
+        .video-display {
             display: flex;
-            gap: 10px;
             justify-content: center;
             margin: 30px 0;
             animation: fadeIn 1s ease 0.9s both;
         }
 
-        .slot-reel {
-            width: 68px;
-            height: 88px;
-            background: linear-gradient(180deg, #1a1a2e, #0d0d1a);
-            border: 2px solid var(--gold);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3), inset 0 0 15px rgba(0, 0, 0, 0.5);
-        }
-
-        .slot-reel::before,
-        .slot-reel::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            height: 28px;
-            z-index: 2;
-        }
-
-        .slot-reel::before {
-            top: 0;
-            background: linear-gradient(180deg, rgba(26, 26, 46, 0.9), transparent);
-        }
-
-        .slot-reel::after {
-            bottom: 0;
-            background: linear-gradient(0deg, rgba(26, 26, 46, 0.9), transparent);
-        }
-
-        .reel-inner {
-            animation: spinReel 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite alternate;
-        }
-
-        @keyframes spinReel {
-            from {
-                transform: translateY(-5px);
-            }
-
-            to {
-                transform: translateY(5px);
-            }
+        .hero-video {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 15px;
+            display: block;
         }
 
         /* ── MAIN CTA BUTTON ─────────────────────────────────── */
@@ -979,15 +933,100 @@
             }
         }
 
-        /* ── FOOTER ──────────────────────────────────────────── */
-        footer {
+        /* ── AGE MODAL REMOVED ───────────────────────────────── */
+
+        /* ── ROBUST FOOTER ───────────────────────────────────── */
+        .main-footer {
             position: relative;
             z-index: 1;
+            background: linear-gradient(180deg, transparent, #030308);
+            border-top: 1px solid rgba(255, 215, 0, 0.15);
+            padding: 60px 20px 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .footer-brand p {
+            line-height: 1.6;
+        }
+
+        .footer-links h4,
+        .footer-info h4 {
+            color: white;
+            font-family: 'Russo One', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .security-logos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .sec-logo {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-family: 'Russo One', sans-serif;
+            color: var(--neon-green);
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 0 auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
             text-align: center;
-            padding: 30px 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            color: rgba(255, 255, 255, 0.3);
-            font-size: 0.78rem;
+        }
+
+        .footer-warning {
+            border: 1px solid rgba(255, 0, 110, 0.4);
+            padding: 15px;
+            border-radius: 10px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-weight: bold;
+            display: inline-block;
         }
 
         /* ── COIN BURST ──────────────────────────────────────── */
@@ -1114,10 +1153,253 @@
                 padding: 16px 28px;
             }
         }
+
+        /* ── ENHANCEMENTS: GLASSMORPHISM & MEGA JACKPOT & STAGGER & FAQ ───────────────────────── */
+        .game-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)) !important;
+            border: 1px solid rgba(255, 215, 0, 0.3) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+        }
+
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15), transparent);
+            transform: skewX(-25deg);
+            transition: left 0.6s ease;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .game-card:hover::before {
+            left: 200%;
+        }
+
+        .game-card:hover {
+            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.25), inset 0 0 20px rgba(255, 215, 0, 0.05) !important;
+        }
+
+        /* Mega Jackpot Elements */
+        .mega-jackpot-banner {
+            background: linear-gradient(90deg, #1f0000, #4a0000, #1f0000);
+            border-top: 2px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(255, 0, 0, 0.4), inset 0 0 30px rgba(255, 215, 0, 0.15);
+            margin: 0px 20px 60px 20px;
+            border-radius: 15px;
+            max-width: 900px;
+        }
+
+        @media(min-width: 940px) {
+            .mega-jackpot-banner {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .mega-jackpot-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.15), transparent);
+            transform: skewX(-20deg);
+            animation: megaJackpotShine 3s infinite;
+        }
+
+        @keyframes megaJackpotShine {
+            100% {
+                left: 200%;
+            }
+        }
+
+        .mega-jackpot-label {
+            color: var(--gold);
+            font-family: 'Russo One', sans-serif;
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+        }
+
+        .mega-jackpot-amount {
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: clamp(2.2rem, 10vw, 5.5rem);
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.6);
+            letter-spacing: 2px;
+            line-height: 1.1;
+            white-space: nowrap;
+        }
+
+        .mega-jackpot-sub {
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 1.05rem;
+            margin-top: 10px;
+            font-weight: 700;
+        }
+
+        /* FAQ Accordion */
+        .faq-section {
+            padding: 40px 20px 80px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .faq-item.active {
+            border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+        }
+
+        .faq-question {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-family: 'Russo One', sans-serif;
+            font-size: 1.05rem;
+            color: white;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 215, 0, 0.05);
+        }
+
+        .faq-icon {
+            color: var(--gold);
+            font-size: 1.5rem;
+            line-height: 1;
+            transition: transform 0.3s;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 300px;
+        }
+
+        /* Sticky Mobile CTA & Winner Popup tweaks */
+        .winner-popup {
+            border: 1px solid rgba(37, 211, 102, 0.4) !important;
+            border-left: 4px solid var(--neon-green) !important;
+        }
+
+        @media (max-width: 600px) {
+            .floating-wa {
+                bottom: 0 !important;
+                right: 0 !important;
+                width: 100% !important;
+                height: 65px !important;
+                border-radius: 0 !important;
+                flex-direction: row !important;
+                justify-content: center !important;
+                gap: 15px !important;
+                box-shadow: 0 -5px 25px rgba(37, 211, 102, 0.4) !important;
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
+                z-index: 1000 !important;
+            }
+
+            .floating-wa::after {
+                content: '¡RECLAMÁ TU BONO AHORA!';
+                color: white;
+                font-family: 'Russo One', sans-serif;
+                font-size: 1.05rem;
+            }
+
+
+            .winner-popup {
+                bottom: 85px !important;
+                /* Above sticky footer */
+            }
+        }
+
+        /* Staggered Animations */
+        .reveal.visible .game-card:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .reveal.visible .game-card:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .reveal.visible .game-card:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+
+        .reveal.visible .game-card:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+
+        .reveal.visible .benefit-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .reveal.visible .benefit-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .reveal.visible .benefit-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+
+        .reveal.visible .benefit-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+
+        .reveal.visible .benefit-item:nth-child(5) {
+            transition-delay: 0.5s;
+        }
+
+        .reveal.visible .step-card:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .reveal.visible .step-card:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .reveal.visible .step-card:nth-child(3) {
+            transition-delay: 0.3s;
+        }
     </style>
 </head>
 
 <body>
+
+    <!-- ═══════════════ AGE VERIFICATION MODAL REMOVED ═══════════════ -->
 
     <!-- CURSOR -->
     <div class="cursor" id="cursor"></div>
@@ -1148,7 +1430,7 @@
         <div class="badge">🟢 <span id="liveCount">5.541</span> JUGADORES ACTIVOS AHORA MISMO</div>
 
         <h1 class="hero-title">
-            <span class="title-line1">BONO 25%</span>
+            <span class="title-line1">BONO <span class="highlight-25">25%</span></span>
             <span class="title-line2">PRIMERA CARGA</span>
         </h1>
 
@@ -1157,23 +1439,9 @@
             Cargá desde <span>$2.000</span> y recibí tus fichas en <span>solo 2 MINUTOS</span>.
         </p>
 
-        <!-- SLOT REELS -->
-        <div class="slots-display">
-            <div class="slot-reel">
-                <div class="reel-inner" id="reel1">🍒</div>
-            </div>
-            <div class="slot-reel">
-                <div class="reel-inner" id="reel2" style="animation-delay:.2s">💎</div>
-            </div>
-            <div class="slot-reel">
-                <div class="reel-inner" id="reel3" style="animation-delay:.4s">🍋</div>
-            </div>
-            <div class="slot-reel">
-                <div class="reel-inner" id="reel4" style="animation-delay:.1s">7️⃣</div>
-            </div>
-            <div class="slot-reel">
-                <div class="reel-inner" id="reel5" style="animation-delay:.3s">🔔</div>
-            </div>
+        <!-- VIDEO DISPLAY -->
+        <div class="video-display">
+            <video autoplay loop muted playsinline class="hero-video" src="Bonanza Blast.webm"></video>
         </div>
 
         <a href="https://walink.co/660a24" target="_blank" rel="noopener" class="btn-whatsapp" id="heroCta">
@@ -1183,7 +1451,7 @@
                         d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                 </svg>
             </div>
-            QUIERO MI BONO POR WHATSAPP
+            QUIERO MI USUARIO
         </a>
 
         <div class="social-proof">
@@ -1202,11 +1470,11 @@
         </div>
     </section>
 
-    <!-- ═══════════════ JACKPOT BANNER ═══════════════ -->
-    <div class="jackpot-banner reveal">
-        <div class="jackpot-label">💰 PREMIOS PAGADOS HOY</div>
-        <div class="jackpot-amount" id="jackpotAmt">$0</div>
-        <div class="jackpot-sub">¡Tu próximo retiro podría ser ahora mismo!</div>
+    <!-- ═══════════════ MEGA JACKPOT BANNER ═══════════════ -->
+    <div class="mega-jackpot-banner reveal">
+        <div class="mega-jackpot-label">💰 MEGA JACKPOT ACUMULADO 💰</div>
+        <div class="mega-jackpot-amount" id="jackpotAmt">$0</div>
+        <div class="mega-jackpot-sub">¡Tu próximo retiro está a un toque de distancia!</div>
     </div>
 
     <!-- ═══════════════ CÓMO EMPEZAR ═══════════════ -->
@@ -1332,6 +1600,44 @@
         </div>
     </section>
 
+    <!-- ═══════════════ PREGUNTAS FRECUENTES (FAQ) ═══════════════ -->
+    <section class="faq-section reveal">
+        <h2 class="section-title">PREGUNTAS <span>FRECUENTES</span></h2>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                ¿Es seguro jugar en Fortuna Argentina?
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Sí, somos la plataforma número uno y más confiable del país. Contamos con sistema encriptado para la
+                protección de tus datos y dinero. Tus recargas y retiros son inmediatos.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                ¿Cuánto tarda en llegar mi retiro?
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                ¡Nuestros retiros son los más rápidos del mercado! Recibirás tus ganancias en menos de 2 a 5 minutos
+                directamente en tu cuenta de Mercado Pago o banco.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                ¿Cómo reclamo el bono del 25%?
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Es muy fácil. Al hacer tu primer depósito mediante nuestro WhatsApp oficial, el bono del 25% extra se
+                acreditará automáticamente en tus fichas para que juegues con ventaja.
+            </div>
+        </div>
+    </section>
+
     <!-- ═══════════════ FINAL CTA ═══════════════ -->
     <section class="final-cta reveal">
         <h2>¿LISTO PARA<br><span>GANAR?</span></h2>
@@ -1348,8 +1654,38 @@
         </a>
     </section>
 
-    <footer>
-        <p>🎰 Fortuna Argentina Casino &nbsp;·&nbsp; Juego Responsable &nbsp;·&nbsp; Solo para +18 años.</p>
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">🎰 FORTUNA ARG</div>
+                <p>El casino número uno de Argentina. Retiros instantáneos, 100% confiable y seguro.</p>
+            </div>
+            <div class="footer-links">
+                <h4>ENLACES ÚTILES</h4>
+                <ul>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Juego Responsable</a></li>
+                    <li><a href="https://walink.co/660a24" target="_blank" rel="noopener">Soporte WhatsApp</a></li>
+                </ul>
+            </div>
+            <div class="footer-info">
+                <h4>SEGURIDAD</h4>
+                <div class="security-logos">
+                    <span class="sec-logo">🔒 SSL SECURE</span>
+                    <span class="sec-logo">✅ JUEGO SEGURO</span>
+                    <span class="sec-logo">🛡️ DATOS PROTEGIDOS</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-warning">
+                🔞 JUEGO EXCLUSIVO PARA MAYORES DE 18 AÑOS. EL JUEGO COMPULSIVO ES PERJUDICIAL PARA LA SALUD.
+                <br>
+                Si necesitás ayuda comunicate con la línea gratuita de asistencia al ludópata: 0800-444-4000
+            </div>
+            <p>&copy; 2026 Fortuna Argentina Casino. Todos los derechos reservados.</p>
+        </div>
     </footer>
 
     <!-- ═══════════════ WINNER POPUP ═══════════════ -->
@@ -1363,6 +1699,7 @@
 
     <!-- ═══════════════ SCRIPTS ═══════════════ -->
     <script>
+        /* ── AGE VERIFICATION ────────────────────── */
         /* ── CURSOR ──────────────────────────────── */
         const cursor = document.getElementById('cursor');
         const cursorDot = document.getElementById('cursorDot');
@@ -1421,18 +1758,7 @@
         for (let i = 0; i < 8; i++) setTimeout(createEmoji, i * 700);
         setInterval(createEmoji, 1100);
 
-        /* ── SLOT REELS ──────────────────────────── */
-        const reelSymbols = ['🍒', '💎', '🍋', '7️⃣', '🔔', '⭐', '🍇', '🍀', '💰', '🎰', '🌶️', '🐉'];
-        const reels = ['reel1', 'reel2', 'reel3', 'reel4', 'reel5'];
-        function spinReels() {
-            reels.forEach((id, i) => {
-                setTimeout(() => {
-                    document.getElementById(id).textContent =
-                        reelSymbols[Math.floor(Math.random() * reelSymbols.length)];
-                }, i * 150);
-            });
-        }
-        setInterval(spinReels, 2000);
+        /* ── EXPLOSIVE VIDEO ADDED ABOVE ─────────── */
 
         /* ── LIVE PLAYER COUNTER ─────────────────── */
         let liveCount = 5541;
@@ -1455,16 +1781,21 @@
         animateCounter(document.getElementById('counter2'), 347);
 
         /* ── JACKPOT ─────────────────────────────── */
-        let jackpot = 1248560;
+        let jackpot = 10450820;
         const jEl = document.getElementById('jackpotAmt');
         let jCur = 0;
         const jTimer = setInterval(() => {
-            jCur = Math.min(jCur + 22000, jackpot);
+            jCur = Math.min(jCur + 215000, jackpot);
             jEl.textContent = '$' + Math.floor(jCur).toLocaleString('es-AR');
             if (jCur >= jackpot) {
                 clearInterval(jTimer);
                 setInterval(() => {
-                    jackpot += Math.floor(Math.random() * 1500 + 300);
+                    // 30% de probabilidad de tener un aumento rápido y grande
+                    if (Math.random() > 0.7) {
+                        jackpot += Math.floor(Math.random() * 30000 + 15000); // Salto desde 15k a 45k
+                    } else {
+                        jackpot += Math.floor(Math.random() * 2000 + 300); // Salto entre 300 y 2.3k
+                    }
                     jEl.textContent = '$' + jackpot.toLocaleString('es-AR');
                 }, 1800);
             }
@@ -1508,13 +1839,36 @@
         const wTime = document.getElementById('winnerTime');
 
         function showWinner() {
-            wText.textContent = winners[Math.floor(Math.random() * winners.length)];
+            wText.innerHTML = winners[Math.floor(Math.random() * winners.length)] + '<br><span style="color:#25D366; font-size:0.75rem; display:flex; align-items:center; gap:4px; margin-top:4px;">✔ Verificado por Fortuna</span>';
             wTime.textContent = Math.floor(Math.random() * 5) + 1;
             wPopup.classList.add('show');
             setTimeout(() => {
                 wPopup.classList.remove('show');
-            }, 5000);
+            }, 6000);
         }
+
+        /* ── FAQ ACCORDION LOGIC ─────────────────── */
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+
+                // Close others
+                document.querySelectorAll('.faq-item').forEach(other => {
+                    if (other !== parent && other.classList.contains('active')) {
+                        other.classList.remove('active');
+                        other.querySelector('.faq-icon').textContent = '+';
+                    }
+                });
+
+                parent.classList.toggle('active');
+                const icon = item.querySelector('.faq-icon');
+                if (parent.classList.contains('active')) {
+                    icon.textContent = '-';
+                } else {
+                    icon.textContent = '+';
+                }
+            });
+        });
 
         setTimeout(() => {
             showWinner();
