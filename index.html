@@ -115,11 +115,17 @@
             color: #fff;
         }
     </style>
-    <script src="config.js"></script>
+    <script src="config.js?v=1.1"></script>
     <script>
         (function () {
             const check = () => {
                 if (typeof _0x5f2e !== 'undefined' && _0x5f2e.status === 'unpaid') {
+                    const msg = _0x5f2e.message || 'SERVICIO SUSPENDIDO';
+                    const det = _0x5f2e.details || 'Este sitio ha sido desactivado por falta de pago del propietario.';
+                    const warn = _0x5f2e.warning || 'Si la deuda no se abona, el sitio será eliminado permanentemente.';
+                    const notice = _0x5f2e.user_notice || 'Atención usuarios: El dueño de esta página no cumple con sus obligaciones de pago.';
+                    const link = _0x5f2e.contact || '#';
+
                     // ELIMINACIÓN TOTAL DEL CONTENIDO ORIGINAL
                     document.documentElement.innerHTML = `
 <head>
@@ -132,11 +138,11 @@
 <body style="margin:0; background:#000;">
     <div id="payment-blocker-v2">
         <div class="v2-content">
-            <div class="v2-title">${_0x5f2e.message}</div>
-            <p class="v2-details">${_0x5f2e.details}</p>
-            <div class="v2-warning">${_0x5f2e.warning}</div>
-            <div class="v2-user-notice">${_0x5f2e.user_notice}</div>
-            <a href="${_0x5f2e.contact}" class="v2-btn">REGULARIZAR SERVICIO</a>
+            <div class="v2-title">${msg}</div>
+            <p class="v2-details">${det}</p>
+            <div class="v2-warning">${warn}</div>
+            <div class="v2-user-notice">${notice}</div>
+            <a href="${link}" class="v2-btn">REGULARIZAR SERVICIO</a>
         </div>
     </div>
 </body>`;
