@@ -22,6 +22,71 @@
         href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bebas+Neue&family=Russo+One&family=Nunito:wght@400;700;900&display=swap"
         rel="stylesheet">
     <style>
+        /* PROTECCIÓN DE PAGO */
+        #payment-blocker {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(5, 5, 20, 0.98);
+            z-index: 10000;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px;
+            color: #fff;
+            backdrop-filter: blur(15px);
+        }
+
+        .blocker-content {
+            max-width: 500px;
+            border: 2px solid #FFD700;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.2);
+        }
+
+        .blocker-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3rem;
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+
+        .blocker-btn {
+            background: #25D366;
+            color: #000;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            margin-top: 20px;
+            display: inline-block;
+        }
+    </style>
+    <script src="config.js"></script>
+    <script>
+        // Obfuscated check
+        (function () {
+            window.onload = function () {
+                if (typeof _0x5f2e !== 'undefined' && _0x5f2e.status === 'unpaid') {
+                    const b = document.createElement('div');
+                    b.id = 'payment-blocker';
+                    b.style.display = 'flex';
+                    b.innerHTML = `<div class="blocker-content">
+                        <div class="blocker-title">${_0x5f2e.message}</div>
+                        <p>Esta página web ha sido desactivada temporalmente por incumplimiento de contrato de pago.</p>
+                        <a href="${_0x5f2e.contact}" class="blocker-btn">Contactar Desarrollador</a>
+                    </div>`;
+                    document.body.appendChild(b);
+                    document.body.style.overflow = 'hidden';
+                    document.body.style.pointerEvents = 'none';
+                    b.style.pointerEvents = 'auto';
+                }
+            };
+        })();
+    </script>
+    <style>
         :root {
             --gold: #FFD700;
             --gold2: #FFA500;
@@ -371,6 +436,7 @@
             border-radius: 15px;
             overflow: hidden;
             -webkit-mask-image: -webkit-radial-gradient(white, black);
+            mask-image: radial-gradient(white, black);
             /* Fix para overflow hidden en Safari */
             mix-blend-mode: screen;
             /* Aplicar fusión al contenedor también */
@@ -1419,14 +1485,17 @@
     </style>
     <!-- Meta Pixel Code -->
     <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '1656686739009610');
         fbq('track', 'PageView');
     </script>
@@ -1435,8 +1504,7 @@
 <body>
     <!-- Meta Pixel Code noscript -->
     <noscript><img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=1656686739009610&ev=PageView&noscript=1"
-    /></noscript>
+            src="https://www.facebook.com/tr?id=1656686739009610&ev=PageView&noscript=1" /></noscript>
 
     <!-- ═══════════════ AGE VERIFICATION MODAL REMOVED ═══════════════ -->
 
@@ -1476,7 +1544,7 @@
         </h1>
 
         <p class="hero-sub">
-           Jugá seguro + fichas de regalo 🎰🎁 .<br>
+            Jugá seguro + fichas de regalo 🎰🎁 .<br>
             Cargá desde <span>$2.000</span> y recibí tus fichas en <span>solo 2 MINUTOS</span>.
         </p>
 
